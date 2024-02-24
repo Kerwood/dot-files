@@ -1,0 +1,20 @@
+promptToReturnFromSubprocess: false
+gui:
+  theme:
+    activeBorderColor:
+      - "#50fa7b"
+      - bold
+    inactiveBorderColor:
+      - "#bd93f9"
+    optionsTextColor:
+      - blue
+    selectedLineBgColor:
+      - blue # set to `default` to have no background colour
+    selectedRangeBgColor:
+      - blue
+    cherryPickedCommitBgColor:
+      - cyan
+    cherryPickedCommitFgColor:
+      - blue
+    unstagedChangesColor:
+      - "#ff5555"
