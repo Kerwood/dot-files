@@ -1,32 +1,47 @@
-local overrides = require("custom.configs.overrides")
+local overrides = require "custom.configs.overrides"
 
 ---@type NvPluginSpec[]
 local plugins = {
-    -- https://github.com/simrat39/rust-tools.nvim 
-    {
+  -- https://github.com/simrat39/rust-tools.nvim
+  {
     "simrat39/rust-tools.nvim",
     ft = "rust",
     dependencies = "neovim/nvim-lspconfig",
-    opts = function ()
+    opts = function()
       return require "custom.configs.rust-tools"
     end,
     config = function(_, opts)
-      require('rust-tools').setup(opts)
-    end
+      require("rust-tools").setup(opts)
+    end,
   },
 
   -- https://github.com/rust-lang/rust.vim
   {
     "rust-lang/rust.vim",
     ft = "rust",
-    init = function ()
+    init = function()
       vim.g.rustfmt_autosave = 1
-    end
+    end,
+  },
+
+  -- https://github.com/ray-x/go.nvim
+  {
+    "ray-x/go.nvim",
+    dependencies = { -- optional packages
+      "neovim/nvim-lspconfig",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = function()
+      require("go").setup()
+    end,
+    event = { "CmdlineEnter" },
+    ft = { "go", "gomod" },
+    build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
   },
 
   -- https://github.com/Saecki/crates.nvim
   {
-    'saecki/crates.nvim',
+    "saecki/crates.nvim",
     tag = "v0.3.0",
     event = "BufReadPre Cargo.toml",
     opts = overrides.crates,
@@ -34,7 +49,7 @@ local plugins = {
       require("crates").setup()
     end,
     dependencies = {
-      "nvim-lua/plenary.nvim"
+      "nvim-lua/plenary.nvim",
     },
   },
 
@@ -49,7 +64,7 @@ local plugins = {
 
   {
     "folke/twilight.nvim",
-    cmd = {"Twilight", "TwilightEnable"},
+    cmd = { "Twilight", "TwilightEnable" },
   },
 
   -- Syntax highlight for Just files
@@ -58,7 +73,7 @@ local plugins = {
     "IndianBoy42/tree-sitter-just",
     ft = "just",
     config = function()
-      require("tree-sitter-just").setup({})
+      require("tree-sitter-just").setup {}
     end,
   },
 
@@ -85,10 +100,7 @@ local plugins = {
 
   -- Cutlass overrides the delete operations to actually just delete and not affect the current yank.
   -- https://github.com/gbprod/cutlass.nvim
-  { "gbprod/cutlass.nvim",
-    lazy = false,
-    opts = overrides.cutlass,
-  },
+  { "gbprod/cutlass.nvim", lazy = false, opts = overrides.cutlass },
 
   -- https://github.com/nvim-neo-tree/neo-tree.nvim
   {
@@ -103,7 +115,6 @@ local plugins = {
     },
     opts = overrides.neotree,
   },
-
 
   -- https://github.com/neovim/nvim-lspconfig
   {
@@ -126,7 +137,7 @@ local plugins = {
   -- https://github.com/williamboman/mason.nvim
   {
     "williamboman/mason.nvim",
-    opts = overrides.mason
+    opts = overrides.mason,
   },
 
   -- https://github.com/nvim-treesitter/nvim-treesitter
@@ -134,7 +145,7 @@ local plugins = {
     "nvim-treesitter/nvim-treesitter",
     opts = overrides.treesitter,
     dependencies = {
-      'HiPhish/rainbow-delimiters.nvim'
+      "HiPhish/rainbow-delimiters.nvim",
     },
   },
 

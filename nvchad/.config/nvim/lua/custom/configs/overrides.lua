@@ -20,6 +20,7 @@ M.mason = {
     "deno",
     "prettier",
     "rust-analyzer",
+    "gopls",
   },
 }
 
@@ -70,7 +71,7 @@ M.neotree = {
       ["l"] = "open",
       ["h"] = "close_node",
       ["a"] = { "add", config = { show_path = "relative" }}, -- "none", "relative", "absolute"
-      ["A"] = { "add_directory", config = { show_path = "relative" }}, -- "none", "relative", "absolute" 
+      ["A"] = { "add_directory", config = { show_path = "relative" }}, -- "none", "relative", "absolute"
       ["c"] = { "copy", config = { show_path = "relative" }}, -- "none", "relative", "absolute"
       ["m"] = { "move", config = { show_path = "relative" }}, -- "none", "relative", "absolute"
     }

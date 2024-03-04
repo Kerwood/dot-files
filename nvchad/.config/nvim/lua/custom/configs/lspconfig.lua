@@ -22,7 +22,7 @@ lspconfig.lua_ls.setup {
     Lua = {
       diagnostics = {
         globals = { "vim" },
-        disable = {"missing-fields"},
+        disable = { "missing-fields" },
       },
       workspace = {
         library = {
@@ -38,5 +38,29 @@ lspconfig.lua_ls.setup {
   },
 }
 
+lspconfig.gopls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = { "gopls" },
+  filetypes = { "go", "gomod", "gowork", "gotmpl" },
+  root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+  settings = {
+    gopls = {
+      hints = {
+        assignVariableTypes = true,
+        compositeLiteralFields = true,
+        compositeLiteralTypes = true,
+        constantValues = true,
+        functionTypeParameters = true,
+        parameterNames = true,
+        rangeVariableTypes = true,
+      },
+      completeUnimported = true,
+      usePlaceholders = true,
+      analyses = {
+        unusedparams = true,
+      },
+    },
+  },
+}
 -- lspconfig.pyright.setup { blabla}
-
