@@ -160,10 +160,14 @@ fi
 #source <(~/.local/bin/kubectl completion zsh)
 
 # zoxide
-eval "$(zoxide init --cmd j zsh)"
+if command -v zoxid &> /dev/null; then
+  eval "$(zoxide init --cmd j zsh)"
+fi
 
 # Starship
-eval "$(starship init zsh)"
+if command -v starship &> /dev/null; then
+  eval "$(starship init zsh)"
+fi
 
 # Google CLoud SQL
 # export PATH=$PATH:/usr/lib64/google-cloud-sdk/bin/
