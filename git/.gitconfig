@@ -1,7 +1,7 @@
 [user]
 	email = patrick@kerwood.dk
 	name = Patrick Kerwood
-	signingkey = /var/home/kerwood/.ssh/id_rsa.pub
+	signingkey = /home/kerwood/.ssh/id_rsa.pub
 [gpg]
 	format = ssh
 [commit]
