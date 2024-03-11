@@ -160,7 +160,7 @@ fi
 #source <(~/.local/bin/kubectl completion zsh)
 
 # zoxide
-if command -v zoxid &> /dev/null; then
+if command -v zoxide &> /dev/null; then
   eval "$(zoxide init --cmd j zsh)"
 fi
 
