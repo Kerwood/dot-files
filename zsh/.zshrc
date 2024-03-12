@@ -142,6 +142,7 @@ alias tp=telepresence
 alias z=zellij
 alias g=gcloud
 alias lazy=lazygit
+alias db=distrobox
 
 # include .ok_aliases if it exists
 if [ -f $HOME/.ok_aliases ]; then
@@ -167,6 +168,11 @@ fi
 # Starship
 if command -v starship &> /dev/null; then
   eval "$(starship init zsh)"
+fi
+
+# Atuin
+if command -v atuin &> /dev/null; then
+  eval "$(atuin init zsh)"
 fi
 
 # Google CLoud SQL
