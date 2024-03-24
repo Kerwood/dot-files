@@ -225,25 +225,25 @@ plugins {
 // Once these themes are defined, one of them should to be selected in the "theme" section of this file
 //
 themes {
-    dracula {
-        fg "#50fa7b"
-        bg "#50fa7b"
-        red "#ff5555"
-        green "#50fa7b"
-        yellow "#f1fa8c"
-        blue "#50fa7b"
-        magenta "#ff79c6"
-        orange "#ffb86c"
-        cyan "#8be9fd"
-        black "#50fa7b"
-        white "#ffffff"
+    draculacustom {
+        fg 248 248 242
+        bg 68 71 90
+        black 0 0 0
+        red 255 85 85
+        green 80 250 123
+        yellow 241 250 140
+        blue 98 114 164
+        magenta 255 121 198
+        cyan 139 233 253
+        white 255 255 255
+        orange 255 184 108
     }
 }
 
 // Choose the theme that is specified in the themes section.
 // Default: default
 //
-theme "dracula"
+theme "draculacustom"
 
 // The name of the default layout to load on startup
 // Default: "default"
