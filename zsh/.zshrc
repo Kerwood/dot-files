@@ -172,7 +172,7 @@ fi
 
 # Atuin
 if command -v atuin &> /dev/null; then
-  eval "$(atuin init zsh)"
+  eval "$(atuin init zsh --disable-up-arrow)"
 fi
 
 # Google CLoud SQL
