@@ -1,4 +1,4 @@
-local overrides = require "custom.configs.overrides"
+local overrides = require("custom.configs.overrides")
 
 ---@type NvPluginSpec[]
 local plugins = {
@@ -8,7 +8,7 @@ local plugins = {
     ft = "rust",
     dependencies = "neovim/nvim-lspconfig",
     opts = function()
-      return require "custom.configs.rust-tools"
+      return require("custom.configs.rust-tools")
     end,
     config = function(_, opts)
       require("rust-tools").setup(opts)
@@ -56,7 +56,7 @@ local plugins = {
   {
     "hrsh7th/nvim-cmp",
     opts = function()
-      local M = require "plugins.configs.cmp"
+      local M = require("plugins.configs.cmp")
       table.insert(M.sources, { name = "crates" })
       return M
     end,
@@ -73,7 +73,7 @@ local plugins = {
     "IndianBoy42/tree-sitter-just",
     ft = "just",
     config = function()
-      require("tree-sitter-just").setup {}
+      require("tree-sitter-just").setup({})
     end,
   },
 
@@ -124,13 +124,13 @@ local plugins = {
       {
         "jose-elias-alvarez/null-ls.nvim",
         config = function()
-          require "custom.configs.null-ls"
+          require("custom.configs.null-ls")
         end,
       },
     },
     config = function()
-      require "plugins.configs.lspconfig"
-      require "custom.configs.lspconfig"
+      require("plugins.configs.lspconfig")
+      require("custom.configs.lspconfig")
     end, -- Override to setup mason-lspconfig
   },
 
@@ -165,11 +165,10 @@ local plugins = {
     end,
   },
 
-  -- To make a plugin not be loaded
-  -- {
-  --   "NvChad/nvim-colorizer.lua",
-  --   enabled = false
-  -- },
+  {
+    "NvChad/nvim-colorizer.lua",
+    opts = overrides.colorizer,
+  },
 
   -- All NvChad plugins are lazy-loaded by default
   -- For a plugin to be loaded, you will need to set either `ft`, `cmd`, `keys`, `event`, or set `lazy = false`

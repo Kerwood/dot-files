@@ -24,6 +24,12 @@ M.mason = {
   },
 }
 
+M.colorizer = {
+  user_default_options = {
+    names = false,
+  },
+}
+
 M.cutlass = {
   cut_key = "x",
   override_del = true,
@@ -33,7 +39,7 @@ M.crates = {
   null_ls = {
     enabled = true,
     name = "Crates",
-  }
+  },
 }
 
 M.neotree = {
@@ -53,28 +59,28 @@ M.neotree = {
     git_status = {
       symbols = {
         -- Change type
-        added     = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
-        modified  = "", -- or "", but this is redundant info if you use git_status_colors on the name
-        deleted   = "✖",-- this can only be used in the git_status source
-        renamed   = "",-- this can only be used in the git_status source
+        added = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
+        modified = "", -- or "", but this is redundant info if you use git_status_colors on the name
+        deleted = "✖", -- this can only be used in the git_status source
+        renamed = "", -- this can only be used in the git_status source
         -- Status type
         untracked = "U",
-        ignored   = "",
-        unstaged  = "M",
-        staged    = "",
-        conflict  = "",
-      }
+        ignored = "",
+        unstaged = "M",
+        staged = "",
+        conflict = "",
+      },
     },
   },
   window = {
     mappings = {
       ["l"] = "open",
       ["h"] = "close_node",
-      ["a"] = { "add", config = { show_path = "relative" }}, -- "none", "relative", "absolute"
-      ["A"] = { "add_directory", config = { show_path = "relative" }}, -- "none", "relative", "absolute"
-      ["c"] = { "copy", config = { show_path = "relative" }}, -- "none", "relative", "absolute"
-      ["m"] = { "move", config = { show_path = "relative" }}, -- "none", "relative", "absolute"
-    }
+      ["a"] = { "add", config = { show_path = "relative" } },        -- "none", "relative", "absolute"
+      ["A"] = { "add_directory", config = { show_path = "relative" } }, -- "none", "relative", "absolute"
+      ["c"] = { "copy", config = { show_path = "relative" } },       -- "none", "relative", "absolute"
+      ["m"] = { "move", config = { show_path = "relative" } },       -- "none", "relative", "absolute"
+    },
   },
   filesystem = {
     follow_current_file = {
@@ -84,8 +90,7 @@ M.neotree = {
     filtered_items = {
       hide_dotfiles = false,
       hide_gitignored = false,
-      hide_by_name = {
-      },
+      hide_by_name = {},
       hide_by_pattern = { -- uses glob style patterns
         --"*.meta",
         --"*/src/*/tsconfig.json",
@@ -95,7 +100,7 @@ M.neotree = {
       },
       never_show = { -- remains hidden even if visible is toggled to true, this overrides always_show
         "node_modules",
-        ".git"
+        ".git",
       },
       never_show_by_pattern = { -- uses glob style patterns
         --".null-ls_*",
