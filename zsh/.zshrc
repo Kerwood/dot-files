@@ -141,7 +141,7 @@ alias vim=nvim
 alias tp=telepresence
 alias z=zellij
 alias g=gcloud
-alias lazy=lazygit
+alias lz=lazygit
 alias db=distrobox
 
 # include .ok_aliases if it exists
