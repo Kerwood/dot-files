@@ -42,11 +42,11 @@ local plugins = {
   -- https://github.com/Saecki/crates.nvim
   {
     "saecki/crates.nvim",
-    tag = "v0.3.0",
+    tag = "v0.4.0",
     event = "BufReadPre Cargo.toml",
     opts = overrides.crates,
-    config = function()
-      require("crates").setup()
+    config = function(_, opts)
+      require("crates").setup(opts)
     end,
     dependencies = {
       "nvim-lua/plenary.nvim",

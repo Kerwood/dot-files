@@ -36,6 +36,10 @@ M.cutlass = {
 }
 
 M.crates = {
+  popup = {
+    autofocus = true,
+    border = "rounded",
+  },
   null_ls = {
     enabled = true,
     name = "Crates",
