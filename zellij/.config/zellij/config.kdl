@@ -5,6 +5,8 @@ keybinds {
         // uncomment this and adjust key if using copy_on_select=false
         // bind "Alt c" { Copy; }
         bind "Alt f" { ToggleFocusFullscreen; SwitchToMode "Normal"; }
+        bind "Alt d" { NewPane "Down"; SwitchToMode "Normal"; }
+        bind "Alt r" { NewPane "Right"; SwitchToMode "Normal"; }
     }
     locked {
         bind "Ctrl g" { SwitchToMode "Normal"; }
