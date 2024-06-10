@@ -10,9 +10,13 @@ local b = null_ls.builtins
 local sources = {
 
   -- webdev stuff
-  b.formatting.deno_fmt, -- choosed deno for ts/js files cuz its very fast!
-  b.formatting.prettier.with { filetypes = { "html", "markdown", "css" } }, -- so prettier works only on these filetypes
+  b.formatting.deno_fmt.with({
+    disabled_filetypes = { "markdown" },
+  }), -- choosed deno for ts/js files cuz its very fast!
 
+  -- b.formatting.prettier.with({ filetypes = { "html", "css", "markdown" } }), -- so prettier works only on these filetypes
+  b.formatting.prettierd,
+  --
   -- ShellCheck
   b.diagnostics.shellcheck,
   -- b.diagnostics.shellcheck.with { diagnostics_format = "#{m} [#{c}]" },

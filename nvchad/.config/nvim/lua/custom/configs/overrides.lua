@@ -21,6 +21,8 @@ M.mason = {
     "prettier",
     "rust-analyzer",
     "gopls",
+    "prettierd",
+    "terraform-ls",
   },
 }
 
