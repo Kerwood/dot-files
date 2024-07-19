@@ -76,7 +76,7 @@ HIST_IGNORE_SPACE="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git sudo gcloud kubectl)
+plugins=(git sudo gcloud kubectl docker)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -135,6 +135,14 @@ alias remove-branches='git branch | xargs -L1 | gum choose --no-limit | xargs gi
 alias watch="watch "
 alias fix-chrome="rm -rf ~/.config/google-chrome/Singleton*"
 alias xclip="xclip -selection clipboard"
+alias ok='cd ~/kubernetes/$(eza -D ~/kubernetes | fzf --border || true)'
+alias og=open_git
+
+function open_git() {
+  local g_dir="$HOME/git"
+  local dir=$(eza -D $g_dir | fzf --height 50% --border --preview="eza -lah --color=always --icons --group-directories-first --git --no-permissions --ignore-glob=.git ~/git/{}" || false)
+  if [ $dir ]; then; cd $g_dir/$dir && nvim .; fi
+}
 
 # Shortcuts
 alias vim=nvim
