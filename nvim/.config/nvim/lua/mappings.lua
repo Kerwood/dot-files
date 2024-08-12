@@ -29,3 +29,9 @@ map("n", "<S-q>", function()
 end, { desc = "Close buffer" })
 -- map("n", "<S-l>", function() nvchad_tabufline.next() end, { desc = "Goto next buffer" })
 -- map("n", "<S-h>", function() nvchad_tabufline.prev() end, { desc = "Goto prev buffer" })
+
+-- vim.keymap.set("n", "gr", function()
+--   require("telescope.builtin").lsp_references()
+-- end, { noremap = true, silent = true })
+
+vim.keymap.set("n", "tr", "<cmd>Telescope lsp_references<CR>", {})

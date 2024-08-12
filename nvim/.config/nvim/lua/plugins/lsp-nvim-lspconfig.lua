@@ -13,14 +13,11 @@ local config = function()
     "denols",
     "docker_compose_language_service",
     "dockerls",
-    "helm_ls",
     "jsonls",
     "intelephense", -- PHP
     "marksman", -- Mardown
     "vacuum", -- OpenAPI Spec
     "pyright", -- Python
-    -- "yamlls",
-    -- "lua_ls",
     "taplo", -- TOML
     "terraformls",
   }
@@ -35,6 +32,21 @@ local config = function()
       capabilities = nvlsp.capabilities,
     }
   end
+
+  -- LSP Setup for helm_ls
+  lspconfig.helm_ls.setup {
+    on_attach = nvlsp.on_attach,
+    on_init = nvlsp.on_init,
+    capabilities = nvlsp.capabilities,
+    settings = {
+      valuesFiles = {
+        additionalValuesFilesGlobPattern = "values*.yaml",
+      },
+      yamlls = {
+        enabled = false,
+      },
+    },
+  }
 
   -- LSP Setup for Yaml
   lspconfig.yamlls.setup {

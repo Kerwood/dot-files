@@ -11,12 +11,11 @@ autocmd("VimResized", {
   command = "tabdo wincmd =",
 })
 
-opt.ignorecase = true     -- ignore case in search patterns
+opt.ignorecase = true -- ignore case in search patterns
 opt.scrolloff = 8
 opt.sidescrolloff = 8
-opt.whichwrap = 'b,s'     -- Default value
-opt.iskeyword:append("-")
+opt.whichwrap = "b,s" -- Default value
+opt.iskeyword:append "-"
 
 -- Enable LSP inlay hints
 vim.lsp.inlay_hint.enable(true)
-
