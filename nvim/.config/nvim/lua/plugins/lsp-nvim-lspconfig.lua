@@ -15,10 +15,10 @@ local config = function()
     "dockerls",
     "jsonls",
     "intelephense", -- PHP
-    "marksman", -- Mardown
-    "vacuum", -- OpenAPI Spec
-    "pyright", -- Python
-    "taplo", -- TOML
+    "marksman",     -- Mardown
+    "vacuum",       -- OpenAPI Spec
+    "pyright",      -- Python
+    "taplo",        -- TOML
     "terraformls",
   }
 
@@ -39,11 +39,13 @@ local config = function()
     on_init = nvlsp.on_init,
     capabilities = nvlsp.capabilities,
     settings = {
-      valuesFiles = {
-        additionalValuesFilesGlobPattern = "values*.yaml",
-      },
-      yamlls = {
-        enabled = false,
+      ['helm-ls'] = {
+        valuesFiles = {
+          additionalValuesFilesGlobPattern = "values*.yaml",
+        },
+        yamlls = {
+          enabled = false,
+        },
       },
     },
   }
