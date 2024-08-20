@@ -1,6 +1,23 @@
 -- Configs for the Nvim LSP client
 -- https://github.com/neovim/nvim-lspconfig
 
+-- Below border and handler variables enables borders on LSP diagnostics.
+local border = {
+  { "╭" },
+  { "─" },
+  { "╮" },
+  { "│" },
+  { "╯" },
+  { "─" },
+  { "╰" },
+  { "│" },
+}
+
+local handlers = {
+  ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
+  ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
+}
+
 local config = function()
   -- load defaults i.e lua_lsp
   require("nvchad.configs.lspconfig").defaults()
@@ -8,7 +25,6 @@ local config = function()
   local lspconfig = require "lspconfig"
 
   local servers = {
-    -- "azure_pipelines_ls",
     "bashls",
     "denols",
     "docker_compose_language_service",
@@ -20,6 +36,7 @@ local config = function()
     "pyright",      -- Python
     "taplo",        -- TOML
     "terraformls",
+    "lua_ls",
   }
 
   local nvlsp = require "nvchad.configs.lspconfig"
@@ -30,6 +47,7 @@ local config = function()
       on_attach = nvlsp.on_attach,
       on_init = nvlsp.on_init,
       capabilities = nvlsp.capabilities,
+      handlers = handlers,
     }
   end
 
@@ -38,6 +56,7 @@ local config = function()
     on_attach = nvlsp.on_attach,
     on_init = nvlsp.on_init,
     capabilities = nvlsp.capabilities,
+    handlers = handlers,
     settings = {
       ['helm-ls'] = {
         valuesFiles = {
@@ -55,6 +74,7 @@ local config = function()
     on_attach = nvlsp.on_attach,
     on_init = nvlsp.on_init,
     capabilities = nvlsp.capabilities,
+    handlers = handlers,
     settings = {
       yaml = {
         schemas = {
@@ -67,12 +87,32 @@ local config = function()
     },
   }
 
-  -- configuring single server, example: typescript
-  -- lspconfig.tsserver.setup {
-  --   on_attach = nvlsp.on_attach,
-  --   on_init = nvlsp.on_init,
-  --   capabilities = nvlsp.capabilities,
-  -- }
+  -- Below lua_ls setup is a copy/paste of the orginal setup function from NvChad with the added handlers for enabling boarder.
+  -- https://github.com/NvChad/NvChad/blob/8df1aa9a4de26765f70e63ccbb1ba8a43b3b2e89/lua/nvchad/configs/lspconfig.lua#L67
+  lspconfig.lua_ls.setup {
+    on_attach = nvlsp.on_attach,
+    on_init = nvlsp.on_init,
+    capabilities = nvlsp.capabilities,
+    handlers = handlers,
+    settings = {
+      Lua = {
+        diagnostics = {
+          globals = { "vim" },
+        },
+        workspace = {
+          library = {
+            vim.fn.expand "$VIMRUNTIME/lua",
+            vim.fn.expand "$VIMRUNTIME/lua/vim/lsp",
+            vim.fn.stdpath "data" .. "/lazy/ui/nvchad_types",
+            vim.fn.stdpath "data" .. "/lazy/lazy.nvim/lua/lazy",
+            "${3rd}/luv/library",
+          },
+          maxPreload = 100000,
+          preloadFileSize = 10000,
+        },
+      },
+    },
+  }
 end
 
 return {

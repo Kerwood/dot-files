@@ -5,16 +5,22 @@
 local M = {}
 
 M.base46 = {
-  theme = "chadracula",
+  theme = "catppuccin",
 
-  -- hl_override = {
-  -- 	Comment = { italic = true },
-  -- 	["@comment"] = { italic = true },
-  -- },
+  hl_override = {
+    CmpDoc = { bg = "black" },
+    CmpDocBorder = { fg = "grey_fg", bg = "black" },
+  },
 
   hl_add = {
     -- Change the color of inlay hints.
-    LspInlayHint = { fg = "#8D918E" },
+    LspInlayHint = { fg = "light_grey", bg = "black" },
+  },
+}
+
+M.ui = {
+  telescope = {
+    style = "bordered",
   },
 }
 
