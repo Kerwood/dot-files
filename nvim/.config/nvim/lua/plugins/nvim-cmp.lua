@@ -3,13 +3,14 @@ local cmp = require "cmp"
 local options = {
 
   -- Below two lines disables cmp from auto selection the first suggestion in the list.
-  preselect = cmp.PreselectMode.None,
-  completion = { completeopt = "noselect" },
+  -- preselect = cmp.PreselectMode.None,
+  -- completion = { completeopt = "noselect" },
 
   mapping = {
     ["<CR>"] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Insert,
       select = false, -- Set to false to disable auto select.
+      -- select = false, -- Set to false to disable auto select.
     },
 
     ["<Down>"] = cmp.mapping(function(fallback)
@@ -27,6 +28,14 @@ local options = {
         cmp.select_prev_item()
       elseif require("luasnip").jumpable(-1) then
         require("luasnip").jump(-1)
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
+
+    ["<Esc>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.abort()
       else
         fallback()
       end
