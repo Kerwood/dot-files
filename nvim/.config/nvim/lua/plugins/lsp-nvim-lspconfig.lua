@@ -36,7 +36,6 @@ local config = function()
     "pyright",      -- Python
     "taplo",        -- TOML
     "terraformls",
-    "lua_ls",
   }
 
   local nvlsp = require "nvchad.configs.lspconfig"
@@ -82,33 +81,6 @@ local config = function()
             "azure-pipeline*.y*l",
             "Pipelines/*.y*l",
           },
-        },
-      },
-    },
-  }
-
-  -- Below lua_ls setup is a copy/paste of the orginal setup function from NvChad with the added handlers for enabling boarder.
-  -- https://github.com/NvChad/NvChad/blob/8df1aa9a4de26765f70e63ccbb1ba8a43b3b2e89/lua/nvchad/configs/lspconfig.lua#L67
-  lspconfig.lua_ls.setup {
-    on_attach = nvlsp.on_attach,
-    on_init = nvlsp.on_init,
-    capabilities = nvlsp.capabilities,
-    handlers = handlers,
-    settings = {
-      Lua = {
-        diagnostics = {
-          globals = { "vim" },
-        },
-        workspace = {
-          library = {
-            vim.fn.expand "$VIMRUNTIME/lua",
-            vim.fn.expand "$VIMRUNTIME/lua/vim/lsp",
-            vim.fn.stdpath "data" .. "/lazy/ui/nvchad_types",
-            vim.fn.stdpath "data" .. "/lazy/lazy.nvim/lua/lazy",
-            "${3rd}/luv/library",
-          },
-          maxPreload = 100000,
-          preloadFileSize = 10000,
         },
       },
     },
