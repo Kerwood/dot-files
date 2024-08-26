@@ -1,23 +1,6 @@
 -- Configs for the Nvim LSP client
 -- https://github.com/neovim/nvim-lspconfig
 
--- Below border and handler variables enables borders on LSP diagnostics.
-local border = {
-  { "╭" },
-  { "─" },
-  { "╮" },
-  { "│" },
-  { "╯" },
-  { "─" },
-  { "╰" },
-  { "│" },
-}
-
-local handlers = {
-  ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
-  ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
-}
-
 local config = function()
   -- load defaults i.e lua_lsp
   require("nvchad.configs.lspconfig").defaults()
@@ -46,7 +29,6 @@ local config = function()
       on_attach = nvlsp.on_attach,
       on_init = nvlsp.on_init,
       capabilities = nvlsp.capabilities,
-      handlers = handlers,
     }
   end
 
@@ -55,7 +37,6 @@ local config = function()
     on_attach = nvlsp.on_attach,
     on_init = nvlsp.on_init,
     capabilities = nvlsp.capabilities,
-    handlers = handlers,
     settings = {
       ['helm-ls'] = {
         valuesFiles = {
@@ -73,7 +54,6 @@ local config = function()
     on_attach = nvlsp.on_attach,
     on_init = nvlsp.on_init,
     capabilities = nvlsp.capabilities,
-    handlers = handlers,
     settings = {
       yaml = {
         schemas = {
