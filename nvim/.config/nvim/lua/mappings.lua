@@ -12,6 +12,7 @@ map("n", "<leader>o", "o<ESC>k", { desc = "Add blank line below" })
 map("n", "<leader>O", "O<ESC>j", { desc = "Add blank line above" })
 map("n", "<S-Tab>", "<<_", { desc = "Un-indent line" })
 map("n", "<Tab>", ">>_", { desc = "Indent line" })
+map("n", "<C-n>", ":Neotree toggle<CR>", { desc = "Neotree Toggle" })
 
 map("v", "<S-Tab>", "<gv", { desc = "Un-indent line" })
 map("v", "<Tab>", ">gv", { desc = "Indent line" })
