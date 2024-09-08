@@ -29,7 +29,7 @@ map("n", "<S-q>", function() nvchad_tabufline.close_buffer() end, { desc = "Clos
 -- map("n", "<S-l>", function() nvchad_tabufline.next() end, { desc = "Goto next buffer" })
 -- map("n", "<S-h>", function() nvchad_tabufline.prev() end, { desc = "Goto prev buffer" })
 
-vim.keymap.set("n", "tr", "<cmd>Telescope lsp_references<CR>", {})
+map("n", "<leader>tr", "<cmd>Telescope lsp_references<CR>", { desc = "LSP Refernces - Telescope" })
 
 -- Diagnostics #####################################################
 map("n", "<leader>dd", vim.diagnostic.open_float, { desc = "LSP Diagnostic Popup" })
