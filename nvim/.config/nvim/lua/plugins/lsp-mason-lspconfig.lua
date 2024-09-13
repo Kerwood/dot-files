@@ -11,9 +11,9 @@ local options = {
     "helm_ls",
     "jsonls",
     "intelephense", -- PHP
-    "marksman", -- Mardown
-    "vacuum", -- OpenAPI Spec
-    "pyright", -- Python
+    "marksman",     -- Mardown
+    "vacuum",       -- OpenAPI Spec
+    "pyright",      -- Python
     "yamlls",
     "lua_ls",
     "taplo", -- TOML
