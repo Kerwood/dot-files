@@ -12,7 +12,7 @@ map("n", "<leader>o", "o<ESC>k", { desc = "Add blank line below" })
 map("n", "<leader>O", "O<ESC>j", { desc = "Add blank line above" })
 map("n", "<S-Tab>", "<<_", { desc = "Un-indent line" })
 map("n", "<Tab>", ">>_", { desc = "Indent line" })
-map("n", "<C-n>", ":Neotree toggle<CR>", { desc = "Neotree Toggle" })
+map("n", "<leader>tt", ":Neotree toggle<CR>", { desc = "Neotree Toggle" })
 
 map("v", "<S-Tab>", "<gv", { desc = "Un-indent line" })
 map("v", "<Tab>", ">gv", { desc = "Indent line" })
@@ -35,3 +35,4 @@ map("n", "<leader>tr", "<cmd>Telescope lsp_references<CR>", { desc = "LSP Refern
 map("n", "<leader>dd", vim.diagnostic.open_float, { desc = "LSP Diagnostic Popup" })
 map("n", "<leader>dp", vim.diagnostic.goto_prev, { desc = "LSP Prev Diagnostic" })
 map("n", "<leader>dn", vim.diagnostic.goto_next, { desc = "LSP Next Diagnostic" })
+map("n", "K", vim.lsp.buf.hover, { desc = "LSP Signature Hover" })
