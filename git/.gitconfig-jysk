@@ -1,0 +1,9 @@
+; vi: ft=gitconfig
+
+[user]
+  name = "Patrick Kerwood"
+  email = "pke@jysk.com"
+  signingkey = /home/kerwood/.ssh/id_rsa_jysk.pub
+
+[url "git@github.com-jysk"]
+  insteadOf = git@github.com
