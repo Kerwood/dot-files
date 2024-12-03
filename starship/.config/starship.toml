@@ -12,6 +12,7 @@ $hg_branch\
 $package\
 $golang\
 $helm\
+$aws\
 $kotlin\
 $nim\
 $nodejs\
@@ -35,8 +36,8 @@ $character"""
 add_newline = false
 
 # Replace the "❯" symbol in the prompt with "➜"
-[character]                            # The name of the module we are configuring is "character"
-success_symbol = "[➜](bold green)"     # The "success_symbol" segment is being set to "➜" with the color "bold green"
+[character] # The name of the module we are configuring is "character"
+success_symbol = "[➜](bold green)" # The "success_symbol" segment is being set to "➜" with the color "bold green"
 error_symbol = "[➜](bold red)"     # The "success_symbol" segment is being set to "➜" with the color "bold green"
 
 [directory]
@@ -64,3 +65,7 @@ disabled = false
 threshold = 95
 format = '[RAM usage is high! \[$ram_pct\]](bold red)'
 
+[aws]
+format = 'on [$symbol($profile )(\($region\) )]($style)'
+style = 'bold #FF9900'
+symbol = '🅰 '

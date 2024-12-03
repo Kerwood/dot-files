@@ -76,7 +76,7 @@ HIST_IGNORE_SPACE="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git sudo gcloud kubectl docker)
+plugins=(git sudo gcloud kubectl docker aws)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -129,6 +129,7 @@ alias ktd="kubectl tree deployments.apps"
 alias ktc="kubectl tree certificates.cert-manager.io"
 
 # Misc
+alias dc='docker compose'
 alias fjson="jq -R -r -C '. as \$line | try fromjson catch \$line'"
 alias cat='bat -p'
 alias remove-branches='git branch | xargs -L1 | gum choose --no-limit | xargs git branch -D'
@@ -137,6 +138,14 @@ alias fix-chrome="rm -rf ~/.config/google-chrome/Singleton*"
 alias xclip="xclip -selection clipboard"
 alias ok='cd ~/kubernetes/$(eza -D ~/kubernetes | fzf --border || true)'
 alias og=open_git
+alias au='unset AWS_PROFILE'
+alias al='aws sso login --profile default-iam'
+alias ap=aws_profile
+
+function aws_profile() {
+  local p=$(cat $HOME/.aws/config | awk -F' ' '/^\[profile/ {print $2}' | tr -d '[]' | fzf)
+  export AWS_PROFILE=$p
+}
 
 function open_git() {
   local g_dir="$HOME/git"
@@ -208,3 +217,6 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 
 # Export default editor
 export EDITOR=/usr/bin/nvim
+
+# AWS Completion
+complete -C '/snap/aws-cli/current/bin/aws_completer' aws
