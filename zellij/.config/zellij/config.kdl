@@ -31,6 +31,10 @@ keybinds {
         bind "j" "Down" { MoveFocus "Down"; }
         bind "k" "Up" { MoveFocus "Up"; }
         bind "p" { SwitchFocus; }
+        bind "H" { MovePane "Left"; }
+        bind "L" { MovePane "Right"; }
+        bind "J" { MovePane "Down"; }
+        bind "K" { MovePane "Up"; }
         bind "n" { NewPane; SwitchToMode "Normal"; }
         bind "d" { NewPane "Down"; SwitchToMode "Normal"; }
         bind "r" { NewPane "Right"; SwitchToMode "Normal"; }
