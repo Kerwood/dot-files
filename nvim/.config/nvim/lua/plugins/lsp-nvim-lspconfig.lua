@@ -19,6 +19,7 @@ local config = function()
     "pyright",      -- Python
     "taplo",        -- TOML
     "terraformls",
+    "gopls",
   }
 
   local nvlsp = require "nvchad.configs.lspconfig"
@@ -65,7 +66,30 @@ local config = function()
       },
     },
   }
+
+  -- LSP for Golang
+  lspconfig.gopls.setup {
+    on_attach = nvlsp.on_attach,
+    on_init = nvlsp.on_init,
+    capabilities = nvlsp.capabilities,
+    settings = {
+      gopls = {
+        ["ui.inlayhint.hints"] = {
+          enable = true,
+          assignVariableTypes = true,
+          compositeLiteralFields = true,
+          compositeLiteralTypes = true,
+          constantValues = true,
+          functionTypeParameters = true,
+          parameterNames = true,
+          rangeVariableTypes = true,
+        },
+        -- ["ui.lsp.border"] = "single",
+      },
+    },
+  }
 end
+
 
 return {
   {
