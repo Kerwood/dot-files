@@ -205,11 +205,6 @@ export KUBECONFIG=./kubeconfig
 # Git signing
 export GPG_TTY=$(tty)
 
-# Add Go binaries to PATH
-export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:~/.local/bin
-export PATH=$PATH:~/go/bin/
-
 # Node Version Manager
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
@@ -220,3 +215,7 @@ export EDITOR=/usr/bin/nvim
 
 # AWS Completion
 complete -C '/snap/aws-cli/current/bin/aws_completer' aws
+
+# Golang
+export GOPATH=~/.go
+export PATH=$PATH:~/.go/bin/
