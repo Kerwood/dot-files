@@ -2,7 +2,7 @@ local cmp = require "cmp"
 
 local options = {
 
-  -- Below two lines disables cmp from auto selection the first suggestion in the list.
+  -- Below two lines disables cmp from auto selecting the first suggestion in the list.
   -- preselect = cmp.PreselectMode.None,
   -- completion = { completeopt = "noselect" },
 

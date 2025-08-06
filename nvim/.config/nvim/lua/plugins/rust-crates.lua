@@ -23,7 +23,7 @@ end
 return {
   {
     "saecki/crates.nvim",
-    tag = "v0.6.0",
+    tag = "v0.7.1",
     event = "BufReadPre Cargo.toml",
     config = config,
     dependencies = {

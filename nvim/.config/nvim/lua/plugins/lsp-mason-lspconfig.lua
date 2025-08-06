@@ -3,7 +3,7 @@
 
 local options = {
   ensure_installed = {
-    "azure_pipelines_ls",
+    -- "azure_pipelines_ls",
     "bashls",
     "denols",
     "docker_compose_language_service",
@@ -11,7 +11,7 @@ local options = {
     "helm_ls",
     "jsonls",
     "intelephense", -- PHP
-    "marksman",     -- Mardown
+    "marksman",     -- Markdown
     "vacuum",       -- OpenAPI Spec
     "pyright",      -- Python
     "yamlls",

@@ -5,9 +5,9 @@ local config = function()
   local capabilities = require("nvchad.configs.lspconfig").capabilities
 
   -- Used for nvim-dap debug plugin.
-  local mason_registry = require('mason-registry')
-  local codelldb = mason_registry.get_package("codelldb")
-  local extension_path = codelldb:get_install_path() .. "/extension/"
+  -- local mason_registry = require('mason-registry')
+  -- local codelldb = mason_registry.get_package("codelldb")
+  local extension_path = vim.env.HOME .. "/.local/share/nvim/mason/packages/codelldb/extension/"
   local codelldb_path = extension_path .. "adapter/codelldb"
   local liblldb_path = extension_path .. "lldb/lib/liblldb.so"
   local cfg = require('rustaceanvim.config')
@@ -35,7 +35,7 @@ end
 return {
   {
     "mrcjkb/rustaceanvim",
-    version = "^5", -- Recommended
+    version = "^6", -- Recommended
     lazy = false,   -- This plugin is already lazy
     config = config,
   },
