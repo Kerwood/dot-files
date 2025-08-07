@@ -1,7 +1,6 @@
 require "nvchad.mappings"
 
 -- add yours here
-
 local map = vim.keymap.set
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
@@ -21,6 +20,19 @@ map("v", "<C-j>", ":move '>+1<CR>gv=gv", { desc = "Move selected lines down" })
 map("v", "<C-k>", ":move '<-2<CR>gv=gv", { desc = "Move selected lines up" })
 map("v", "<leader>46", "c<c-r>=system('base64 --decode', @\")<cr><esc>", { desc = "Base64 decode selected string" })
 map("v", "<leader>64", "c<c-r>=system('base64 -w 0', @\")<cr><esc>", { desc = "Base64 encode selected string" })
+
+-- GitSigns ########################################################
+local gitsigns = require('gitsigns')
+
+map('n', '<leader>gs', gitsigns.show_commit, { desc = "Gitsigns - Show commit" })
+map('n', '<leader>gr', gitsigns.reset_hunk, { desc = "Gitsigns - Reset hunk" })
+map('n', '<leader>gp', gitsigns.preview_hunk, { desc = "Gitsigns - Preview hunk" })
+map('n', '<leader>gi', gitsigns.preview_hunk_inline, { desc = "Gitsigns - Preview hunk inline" })
+map('n', '<leader>gc', gitsigns.toggle_current_line_blame, { desc = "Gitsigns - Toggle current line blame" })
+map('n', '<leader>gb', gitsigns.blame, { desc = "Gitsigns - Blame" })
+map('n', '<leader>gl', function()
+  gitsigns.blame_line({ full = true })
+end, { desc = "Gitsigns - Blame line" })
 
 -- Tabufline Plugin ################################################
 local nvchad_tabufline = require "nvchad.tabufline"
