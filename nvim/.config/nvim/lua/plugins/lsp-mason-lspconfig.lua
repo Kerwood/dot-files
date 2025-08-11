@@ -17,7 +17,6 @@ local options = {
     "yamlls",
     "lua_ls",
     "taplo", -- TOML
-    "rust_analyzer",
     "terraformls",
 
     -- Below LSPs requires go to be installed.
@@ -25,6 +24,12 @@ local options = {
     -- "gopls",
     -- "jsonnet_ls",
   },
+
+  automatic_enable = {
+    exclude = {
+      "rust_analyzer",
+    }
+  }
 }
 
 return {

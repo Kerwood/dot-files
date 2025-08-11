@@ -47,6 +47,7 @@ map("n", "<leader>tr", "<cmd>Telescope lsp_references<CR>", { desc = "LSP Refern
 map("n", "<leader>dd", vim.diagnostic.open_float, { desc = "LSP Diagnostic Popup" })
 map("n", "<leader>dp", function() vim.diagnostic.jump({ count = -1, float = true }) end, { desc = "LSP Prev Diagnostic" })
 map("n", "<leader>dn", function() vim.diagnostic.jump({ count = 1, float = true }) end, { desc = "LSP Next Diagnostic" })
+map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP Code Action" })
 map("n", "K", vim.lsp.buf.hover, { desc = "LSP Signature Hover" })
 
 -- Yaml Companion ##################################################
