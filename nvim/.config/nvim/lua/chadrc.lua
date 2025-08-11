@@ -10,10 +10,6 @@ M.base46 = {
   hl_override = {
     CmpDoc = { bg = "black" },
     CmpDocBorder = { fg = "grey_fg", bg = "black" },
-  },
-
-  hl_add = {
-    -- Change the color of inlay hints.
     LspInlayHint = { fg = "light_grey", bg = "black" },
   },
 }
