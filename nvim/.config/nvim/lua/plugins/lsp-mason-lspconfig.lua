@@ -25,9 +25,12 @@ local options = {
     -- "jsonnet_ls",
   },
 
+  -- Below LSP's are enabled by the nvim-lspconfig plugin.
   automatic_enable = {
     exclude = {
       "rust_analyzer",
+      "yamlls",
+      "helm_ls",
     }
   }
 }

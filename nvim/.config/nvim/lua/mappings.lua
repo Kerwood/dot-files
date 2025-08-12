@@ -50,3 +50,11 @@ map("n", "<leader>dn", function() vim.diagnostic.jump({ count = 1, float = true 
 map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP Code Action" })
 map("n", "K", vim.lsp.buf.hover, { desc = "LSP Signature Hover" })
 
+-- Schema Companion ##################################################
+map("n", "<leader>ty", function()
+  require("telescope").extensions.schema_companion.select_schema()
+end, { desc = "Select YAML schema" })
+
+map("n", "<leader>tm", function()
+  require("telescope").extensions.schema_companion.select_from_matching_schemas()
+end, { desc = "Select matching YAML schema" })

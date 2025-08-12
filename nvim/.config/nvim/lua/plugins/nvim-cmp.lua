@@ -40,6 +40,12 @@ local options = {
         fallback()
       end
     end, { "i", "s" }),
+
+    ["<C-j>"] = cmp.mapping(function()
+      if not cmp.visible() then
+        cmp.complete()
+      end
+    end, { "i", "c" }),
   },
 }
 

@@ -50,22 +50,12 @@ local config = function()
     },
   }
 
-  -- LSP Setup for Yaml
-  lspconfig.yamlls.setup {
+  -- LSP Setup for Yaml with schema companion.
+  lspconfig.yamlls.setup(require("schema-companion").setup_client({
     on_attach = nvlsp.on_attach,
     on_init = nvlsp.on_init,
     capabilities = nvlsp.capabilities,
-    settings = {
-      yaml = {
-        schemas = {
-          ["https://raw.githubusercontent.com/microsoft/azure-pipelines-vscode/master/service-schema.json"] = {
-            "azure-pipeline*.y*l",
-            "Pipelines/*.y*l",
-          },
-        },
-      },
-    },
-  }
+  }))
 
   -- LSP for Golang
   lspconfig.gopls.setup {
@@ -84,7 +74,6 @@ local config = function()
           parameterNames = true,
           rangeVariableTypes = true,
         },
-        -- ["ui.lsp.border"] = "single",
       },
     },
   }
