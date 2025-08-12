@@ -50,5 +50,3 @@ map("n", "<leader>dn", function() vim.diagnostic.jump({ count = 1, float = true 
 map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP Code Action" })
 map("n", "K", vim.lsp.buf.hover, { desc = "LSP Signature Hover" })
 
--- Yaml Companion ##################################################
-map("n", "<leader>ty", "<cmd>Telescope yaml_schema<CR>", { desc = "YAML Companion" })
