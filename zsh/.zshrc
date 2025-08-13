@@ -130,7 +130,10 @@ alias ktc="kubectl tree certificates.cert-manager.io"
 
 # Misc
 alias dc='docker compose'
-alias fjson="jq -R -r -C '. as \$line | try fromjson catch \$line'"
+# Will print our structed JSON and any other non JSON lines in between.
+alias pjson="jq -R -r -C '. as \$line | try fromjson catch \$line'"
+# Will only print valid JSON.
+alias fjson="jq -R 'try fromjson catch empty'"
 alias cat='bat -p'
 alias remove-branches='git branch | xargs -L1 | gum choose --no-limit | xargs git branch -D'
 alias watch="watch "
@@ -139,8 +142,14 @@ alias xclip="xclip -selection clipboard"
 alias ok='cd ~/kubernetes/$(eza -D ~/kubernetes | fzf --border || true)'
 alias og=open_git
 alias au='unset AWS_PROFILE'
-alias al='aws sso login --profile default-iam'
+alias al='aws sso login --profile iam'
 alias ap=aws_profile
+alias adl=aws_docker_login
+
+function aws_docker_login() {
+  aws ecr get-login-password --region eu-central-1 --profile shared-non-production | docker login --username AWS --password-stdin 730335548317.dkr.ecr.eu-central-1.amazonaws.com
+  aws ecr get-login-password --region eu-central-1 --profile shared-production | docker login --username AWS --password-stdin 533267182897.dkr.ecr.eu-central-1.amazonaws.com
+}
 
 function aws_profile() {
   local p=$(cat $HOME/.aws/config | awk -F' ' '/^\[profile/ {print $2}' | tr -d '[]' | fzf)
@@ -160,6 +169,7 @@ alias z=zellij
 alias g=gcloud
 alias lz=lazygit
 alias db=distrobox
+alias kns=kubens
 
 # include .ok_aliases if it exists
 if [ -f $HOME/.ok_aliases ]; then
