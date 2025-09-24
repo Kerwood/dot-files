@@ -18,6 +18,7 @@ local options = {
     "lua_ls",
     "taplo", -- TOML
     "terraformls",
+    "tflint",
 
     -- Below LSPs requires go to be installed.
     -- "regols",
@@ -31,6 +32,7 @@ local options = {
       "rust_analyzer",
       "yamlls",
       "helm_ls",
+      "terraformls",
     }
   }
 }
