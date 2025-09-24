@@ -114,7 +114,7 @@ alias ansible-playbook='podman run --rm -it -v $(pwd):/ansible/playbooks:Z -v ~/
 alias powercli='podman run --rm -v powercli:/root:Z -it vmware/powerclicore'
 
 # Digital Ocean
-alias do-create-droplet='doctl compute droplet create --size s-1vcpu-1gb --image centos-7-x64 --region ams3 --ssh-keys dc:de:10:0d:8c:d1:24:e3:2e:f2:84:3b:f8:47:a7:9f --wait'
+alias do-create-droplet='doctl compute droplet create --size s-1vcpu-1gb --image centos-stream-9-x64 --region ams3 --ssh-keys 39:e5:cb:0c:6b:fa:ab:5b:03:be:42:6d:86:4b:ec:d5 --wait'
 alias do-delete-droplet='doctl compute droplet delete'
 alias getspid='az ad sp list --query "[].appId" -o tsv --display-name'
 
