@@ -18,4 +18,5 @@ return {
     { "nvim-telescope/telescope.nvim" },
   },
   config = config,
+  -- enabled = false,
 }

@@ -51,11 +51,11 @@ local config = function()
   }
 
   -- LSP Setup for Yaml with schema companion.
-  lspconfig.yamlls.setup(require("schema-companion").setup_client({
-    on_attach = nvlsp.on_attach,
-    on_init = nvlsp.on_init,
-    capabilities = nvlsp.capabilities,
-  }))
+  -- lspconfig.yamlls.setup(require("schema-companion").setup_client({
+  --   on_attach = nvlsp.on_attach,
+  --   on_init = nvlsp.on_init,
+  --   capabilities = nvlsp.capabilities,
+  -- }))
 
   -- LSP for Golang
   lspconfig.gopls.setup {
