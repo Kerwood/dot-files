@@ -7,5 +7,6 @@ return {
     ft = "markdown",
     config = true,
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
+    enabled = false,
   }
 }
