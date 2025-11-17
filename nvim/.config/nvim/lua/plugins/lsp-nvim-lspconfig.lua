@@ -5,7 +5,7 @@ local config = function()
   -- load defaults i.e lua_lsp
   require("nvchad.configs.lspconfig").defaults()
 
-  local lspconfig = require "lspconfig"
+  -- local lspconfig = require "lspconfig"
 
   local servers = {
     "bashls",
@@ -26,15 +26,15 @@ local config = function()
 
   -- lsps with default config
   for _, lsp in ipairs(servers) do
-    lspconfig[lsp].setup {
+    vim.lsp.config(lsp, {
       on_attach = nvlsp.on_attach,
       on_init = nvlsp.on_init,
       capabilities = nvlsp.capabilities,
-    }
+    })
   end
 
   -- LSP Setup for helm_ls
-  lspconfig.helm_ls.setup {
+  vim.lsp.config("helm_ls", {
     on_attach = nvlsp.on_attach,
     on_init = nvlsp.on_init,
     capabilities = nvlsp.capabilities,
@@ -48,7 +48,7 @@ local config = function()
         },
       },
     },
-  }
+  })
 
   -- LSP Setup for Yaml with schema companion.
   -- lspconfig.yamlls.setup(require("schema-companion").setup_client({
@@ -58,7 +58,8 @@ local config = function()
   -- }))
 
   -- LSP for Golang
-  lspconfig.gopls.setup {
+  vim.lsp.config("gopls", {
+    filetypes = { "go", "gomod", "gowork", "gotmpl" },
     on_attach = nvlsp.on_attach,
     on_init = nvlsp.on_init,
     capabilities = nvlsp.capabilities,
@@ -76,7 +77,7 @@ local config = function()
         },
       },
     },
-  }
+  })
 end
 
 
