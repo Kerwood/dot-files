@@ -146,6 +146,11 @@ alias al='aws sso login --profile iam'
 alias ap=aws_profile
 alias adl=aws_docker_login
 
+function azgroups() {
+  local group=$(az ad group list --filter "startswith(DisplayName, '$1')"  --query "[].{Name:displayName}" -o tsv | fzf  || false)
+  if [ $group ]; then; az ad group member list -o table -g $group; fi
+}
+
 function aws_docker_login() {
   aws ecr get-login-password --region eu-central-1 --profile shared-non-production | docker login --username AWS --password-stdin 730335548317.dkr.ecr.eu-central-1.amazonaws.com
   aws ecr get-login-password --region eu-central-1 --profile shared-production | docker login --username AWS --password-stdin 533267182897.dkr.ecr.eu-central-1.amazonaws.com
