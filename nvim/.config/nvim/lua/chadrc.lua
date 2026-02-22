@@ -5,7 +5,7 @@
 local M = {}
 
 M.base46 = {
-  theme = "chadracula",
+  theme = "nightowl",
 
   hl_override = {
     CmpDoc = { bg = "black" },
