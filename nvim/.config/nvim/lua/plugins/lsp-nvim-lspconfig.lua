@@ -20,6 +20,7 @@ local config = function()
     "taplo",        -- TOML
     "terraformls",
     "gopls",
+    "kcl",
   }
 
   local nvlsp = require "nvchad.configs.lspconfig"
@@ -30,10 +31,10 @@ local config = function()
       on_attach = nvlsp.on_attach,
       on_init = nvlsp.on_init,
       capabilities = nvlsp.capabilities,
+      vim.lsp.enable(lsp)
     })
   end
 
-  -- LSP Setup for helm_ls
   vim.lsp.config("helm_ls", {
     on_attach = nvlsp.on_attach,
     on_init = nvlsp.on_init,
@@ -48,6 +49,7 @@ local config = function()
         },
       },
     },
+    vim.lsp.enable("helm_ls")
   })
 
   -- LSP Setup for Yaml with schema companion.
@@ -77,6 +79,7 @@ local config = function()
         },
       },
     },
+    vim.lsp.enable("gopls")
   })
 end
 
