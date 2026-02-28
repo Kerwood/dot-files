@@ -1,0 +1,53 @@
+;; vim: set ft=lisp:
+
+;; Process keys not defined in defsrc, pass them through unchanged
+;; USB is required for uinput virtual device on Linux
+(defcfg
+  process-unmapped-keys yes
+  linux-output-device-bus-type USB
+)
+
+;; Physical keys intercepted by kanata
+(defsrc
+  caps a s d f 
+  h j k l ; '
+  i o bspc 
+  m , .
+)
+
+;; Global timing defaults for tap-hold keys
+(defvar
+  tap-time 200   ;; max ms to be considered a tap
+  hold-time 200  ;; ms before hold action activates
+)
+
+(defalias
+  ;; caps: instant layer switch to hyper layer, tap does nothing
+  hyper (tap-hold-press 1 1 XX (layer-while-held hyper))
+
+  ;; Home row mods — left hand (ASDF)
+  a-mod (tap-hold $tap-time $hold-time a lshift)  ;; a / left shift
+  s-mod (tap-hold $tap-time $hold-time s lctrl)  ;; s / left ctrl
+  d-mod (tap-hold $tap-time $hold-time d lmeta)  ;; d / left cmd/meta
+  f-mod (tap-hold $tap-time $hold-time f lalt)  ;; f / left alt
+  j-mod (tap-hold $tap-time $hold-time j lalt)  ;; j / right alt
+  k-mod (tap-hold $tap-time $hold-time k lmeta)  ;; k / right cmd/meta
+  l-mod (tap-hold $tap-time $hold-time l lctrl)  ;; l / right ctrl
+  ;-mod (tap-hold $tap-time $hold-time ; lshift)  ;; ; / right shift
+)
+
+;; Default layer — normal typing with home row mods
+(deflayer base
+  @hyper @a-mod @s-mod @d-mod @f-mod
+  h      @j-mod @k-mod @l-mod @;-mod _
+  _      _      _
+  _      _      _
+)
+
+;; Hyper layer — activated while caps is held
+(deflayer hyper
+  _    _    _    _     _     ;; caps + (unused)
+  left down up   right _ `    ;; caps + hjkl = arrow keys
+  bspc ret  del            ;; caps + i/o/bspc = backspace/return/delete
+  mute vold volu           ;; caps + m/,/. = mute/vol down/vol up
+)
