@@ -181,14 +181,6 @@ if [ -f $HOME/.ok_aliases ]; then
     source $HOME/.ok_aliases
 fi
 
-# Tilix Fix
-# if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
-#     source /etc/profile.d/vte.sh
-# fi
-
-# gcloud-auth-plugin
-# export USE_GKE_GCLOUD_AUTH_PLUGIN=True
-
 # Kubectl autocomplete
 #source <(~/.local/bin/kubectl completion zsh)
 
@@ -207,8 +199,10 @@ if command -v atuin &> /dev/null; then
   eval "$(atuin init zsh --disable-up-arrow)"
 fi
 
-# Google CLoud SQL
-# export PATH=$PATH:/usr/lib64/google-cloud-sdk/bin/
+# Justfile autocompletion
+if command -v just &> /dev/null; then
+  eval "$(just --completions zsh)"
+fi
 
 # Krew
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
@@ -234,3 +228,21 @@ complete -C '/snap/aws-cli/current/bin/aws_completer' aws
 # Golang
 export GOPATH=~/.go
 export PATH=$PATH:~/.go/bin/
+
+######################################################
+################ Mac OS Configuration ################
+######################################################
+
+if [[ "$(uname)" == "Darwin" ]]; then
+  # Google CLoud SQL
+  # export PATH=$PATH:/usr/lib64/google-cloud-sdk/bin/
+  export PATH=$PATH:/opt/homebrew/share/google-cloud-sdk/bin
+
+  # Colima support
+  export DOCKER_HOST="unix://${HOME}/.colima/default/docker.sock"
+
+  # Set default editor path
+  export EDITOR=/opt/homebrew/bin/nvim
+
+  alias x="pbcopy"
+fi
