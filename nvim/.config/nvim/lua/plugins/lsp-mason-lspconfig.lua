@@ -30,7 +30,7 @@ local options = {
   automatic_enable = {
     exclude = {
       "rust_analyzer",
-      "yamlls",
+      -- "yamlls",
       "helm_ls",
       "terraformls",
     }
