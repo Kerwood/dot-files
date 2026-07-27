@@ -6,6 +6,9 @@
 [includeIf "hasconfig:remote.*.url:git@github.com:jysk-*/**"]
   path = .gitconfig-jysk
 
+[url "git@github.com-jysk:jysk-"]
+    insteadOf = "https://github.com/jysk-"
+
 [gpg]
   format = ssh
 
