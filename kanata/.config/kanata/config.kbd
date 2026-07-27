@@ -17,8 +17,8 @@
 
 ;; Global timing defaults for tap-hold keys
 (defvar
-  tap-time 200   ;; max ms to be considered a tap
-  hold-time 200  ;; ms before hold action activates
+  tap-time 220   ;; max ms to be considered a tap
+  hold-time 220  ;; ms before hold action activates
 )
 
 (defalias
@@ -38,8 +38,8 @@
 
 ;; Default layer — normal typing with home row mods
 (deflayer base
-  @hyper @a-mod @s-mod @d-mod @f-mod
-  h      @j-mod @k-mod @l-mod @;-mod _
+  @hyper _ _ @d-mod @f-mod
+  _      _ _ _ _ _
   _      _      _
   _      _      _
 )
