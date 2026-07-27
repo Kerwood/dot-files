@@ -175,6 +175,7 @@ alias g=gcloud
 alias lz=lazygit
 alias db=distrobox
 alias kns=kubens
+alias x=xclip
 
 # include .ok_aliases if it exists
 if [ -f $HOME/.ok_aliases ]; then
@@ -227,7 +228,7 @@ complete -C '/snap/aws-cli/current/bin/aws_completer' aws
 
 # Golang
 export GOPATH=~/.go
-export PATH=$PATH:~/.go/bin/
+export PATH=$PATH:~/.go/bin/:~/.local/go/bin/
 
 ######################################################
 ################ Mac OS Configuration ################
