@@ -145,6 +145,7 @@ alias au='unset AWS_PROFILE'
 alias al='aws sso login --profile iam'
 alias ap=aws_profile
 alias adl=aws_docker_login
+alias sshs="sshs --config ~/.ssh/config"
 
 function azgroups() {
   local group=$(az ad group list --filter "startswith(DisplayName, '$1')"  --query "[].{Name:displayName}" -o tsv | fzf  || false)
